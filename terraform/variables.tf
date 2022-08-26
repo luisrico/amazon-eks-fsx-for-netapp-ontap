@@ -7,13 +7,19 @@ variable "vpc_cidr" {
   default     = "10.0.0.0/16"
   description = "default CIDR range of the VPC"
 }
+
+variable "vpcname" {
+  default     = "bbva-main"
+  description = "default vpc name"
+}
+
 variable "aws_region" {
   # default = "us-east-2"
   default     = "eu-west-1"
   description = "aws region"
 }
 
-variable "fsxame" {
+variable "fsxname" {
   default     = "bbva-main"
   description = "default fsx name"
 }
@@ -29,7 +35,7 @@ variable "eksclustername" {
 }
 
 variable "instancetype" {
-  default     = "m5.large"
+  default     = ["m5.large"]
   description = "default eks instance type"
 }
 

@@ -8,7 +8,7 @@ resource "random_string" "fsx_password" {
 
 resource "aws_fsx_ontap_file_system" "eksfs" {
   storage_capacity    = 1024
-  subnet_ids          = ["10.0.1.0/24", "10.0.2.0/24"]
+  subnet_ids          = [module.vpc.private_subnets[0],module.vpc.private_subnets[1]]
   deployment_type     = "MULTI_AZ_1"
   throughput_capacity = 512
   preferred_subnet_id = module.vpc.private_subnets[0]
