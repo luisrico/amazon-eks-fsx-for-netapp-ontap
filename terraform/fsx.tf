@@ -7,17 +7,18 @@ resource "random_string" "fsx_password" {
 }
 
 resource "aws_fsx_ontap_file_system" "eksfs" {
-  storage_capacity    = 2048
-  subnet_ids          = module.vpc.private_subnets
+  storage_capacity    = 1024
+  subnet_ids          = ["10.0.1.0/24", "10.0.2.0/24"]
   deployment_type     = "MULTI_AZ_1"
   throughput_capacity = 512
   preferred_subnet_id = module.vpc.private_subnets[0]
   security_group_ids  = [aws_security_group.fsx_sg.id]
-  # fsx_admin_password  = var.fsx_admin_password
-  fsx_admin_password = random_string.fsx_password.result
+  fsx_admin_password  = var.fsx_admin_password
+###  fsx_admin_password = random_string.fsx_password.result
   route_table_ids    = module.vpc.private_route_table_ids
+  automatic_backup_retention_days = 0
   tags = {
-    Name = var.fsxame
+    Name = var.fsxname
   }
 }
 

@@ -14,11 +14,22 @@ variable "aws_region" {
 }
 
 variable "fsxame" {
-  default     = "eksfs"
+  default     = "bbva-main"
   description = "default fsx name"
 }
 
 variable "fsx_admin_password" {
-  default     = "Netapp1!"
+  default     = "Astra123!"
   description = "default fsx filesystem admin password"
 }
+
+variable "eksclustername" {
+  default     = "bbva-main"
+  description = "default eks cluster name"
+}
+
+variable "instancetype" {
+  default     = "m5.large"
+  description = "default eks instance type"
+}
+
