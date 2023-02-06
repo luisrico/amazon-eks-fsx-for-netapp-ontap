@@ -30,6 +30,7 @@ module "vpc" {
 
   tags = {
     "kubernetes.io/cluster/${local.cluster_name}" = "shared"
+    creator = var.creator
   }
 
   public_subnet_tags = {

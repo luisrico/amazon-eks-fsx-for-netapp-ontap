@@ -11,6 +11,7 @@ module "eks" {
     Environment = "training"
     GithubRepo  = "terraform-aws-eks"
     GithubOrg   = "terraform-aws-modules"
+    creator = var.creator
   }
 
   vpc_id = module.vpc.vpc_id

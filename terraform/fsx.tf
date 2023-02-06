@@ -19,6 +19,7 @@ resource "aws_fsx_ontap_file_system" "eksfs" {
   automatic_backup_retention_days = 0
   tags = {
     Name = var.fsxname
+    creator = var.creator
   }
 }
 
@@ -32,6 +33,7 @@ resource "aws_security_group" "fsx_sg" {
   vpc_id      = module.vpc.vpc_id
   tags = {
     Name = "fsx_sg"
+    creator = var.creator
   }
 }
 

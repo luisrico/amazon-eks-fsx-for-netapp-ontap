@@ -1,6 +1,11 @@
 variable "kubernetes_version" {
-  default     = 1.21
+  default     = 1.24
   description = "kubernetes version"
+}
+
+variable "creator" {
+  default     = "lrico"
+  description = "AWS user owning resources"
 }
 
 variable "vpc_cidr" {
@@ -9,18 +14,18 @@ variable "vpc_cidr" {
 }
 
 variable "vpcname" {
-  default     = "bbva-main"
+  default     = "awsna-main"
   description = "default vpc name"
 }
 
 variable "aws_region" {
   # default = "us-east-2"
-  default     = "eu-west-1"
+  default     = "us-west-2"
   description = "aws region"
 }
 
 variable "fsxname" {
-  default     = "bbva-main"
+  default     = "awsna-main"
   description = "default fsx name"
 }
 
@@ -30,12 +35,12 @@ variable "fsx_admin_password" {
 }
 
 variable "eksclustername" {
-  default     = "bbva-main"
+  default     = "awsna-main"
   description = "default eks cluster name"
 }
 
 variable "instancetype" {
-  default     = ["m5.large"]
+  default     = ["m5.xlarge"]
   description = "default eks instance type"
 }
 
