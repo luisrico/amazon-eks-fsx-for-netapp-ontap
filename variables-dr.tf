@@ -3,6 +3,11 @@ variable "kubernetes_version" {
   description = "kubernetes version"
 }
 
+variable "creator" {
+  default     = "lrico"
+  description = "AWS user owning resources"
+}
+
 variable "vpc_cidr" {
   default     = "10.0.0.0/16"
   description = "default CIDR range of the VPC"
